@@ -14,8 +14,8 @@ using namespace std;
  * @return int
 */
 template<typename T>
-int interativeSearch(vector<T>v, T elem){
-    for(int i = 0; i < v.size(); ++i){
+int interativeSearch(vector<T> & v, const T elem){
+    for(T i = 0; i < v.size(); ++i){
         if(v[i] == elem){
             return i;
         }
@@ -40,11 +40,12 @@ int interativeSearch(vector<T>v, T elem){
  * @param elem: integer to look for
  * @return int
 */
-int binarySearch(vector<int> & v, int start, int end, int elem){
+template<typename T>
+int binarySearch(vector<T> & v, int start, int end, const T& elem){
     if(start > end){
         return-1;
     }
-int mid = (start + end) / 2;
+T mid = (start + end) / 2;
 if (v[mid] > elem){         //search left half
     end = mid -1;
 } else if (v[mid] < elem){  //search right half
